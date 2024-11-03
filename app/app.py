@@ -17,6 +17,3 @@ app.add_middleware(
 # add routers
 for router_module in routers:
     app.include_router(router_module.router)
-
-if __name__ == '__main__':
-    uvicorn.run(port=8080, app=app)

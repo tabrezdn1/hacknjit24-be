@@ -1,13 +1,10 @@
 # chains.py
 import os
-from getpass import getpass
 
 from langchain_community.tools import TavilySearchResults
-from langchain_openai import ChatOpenAI
 from langchain_core.runnables import RunnableLambda, chain as as_runnable, RunnableConfig
 from langchain_core.messages import AIMessage, ToolMessage
 from langchain_core.output_parsers import StrOutputParser
-from langchain_community.utilities.duckduckgo_search import DuckDuckGoSearchAPIWrapper
 from langchain_core.tools import tool
 from typing import Optional
 import json
@@ -27,18 +24,17 @@ from app.service.models import (
     Outline,
     RelatedSubjects,
     Perspectives,
-    Editor,
     InterviewState,
     Queries,
     AnswerWithCitations,
     WikiSection,
 )
-from app.service.utils import format_docs, tag_with_name, swap_roles, update_references, wikipedia_retriever
+from app.service.utils import format_docs, tag_with_name, swap_roles, wikipedia_retriever
 
 # app/service/chains.py
 from langchain_openai import ChatOpenAI
 
-from setting import get_config
+from app.setting import get_config
 
 settings=get_config()
 fast_llm = ChatOpenAI(model="gpt-4o-mini", api_key=settings.OPENAI_API_KEY)

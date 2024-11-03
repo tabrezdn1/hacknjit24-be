@@ -20,7 +20,7 @@ from app.service.chains import (
     writer,
 )
 from app.service.utils import format_conversation
-from setting import get_config
+from app.setting import get_config
 
 settings=get_config()
 # Initialize embeddings and vector store
